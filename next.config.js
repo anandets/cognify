@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['localhost'],
+    domains: ['placehold.co'],
   },
   typescript: {
     // !! WARN !!

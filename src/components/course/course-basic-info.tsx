@@ -1,222 +1,146 @@
-'use client'
+"use client";
 
-import { UseFormReturn } from 'react-hook-form'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Course } from '@/lib/validations'
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useCourseStore } from "@/lib/store";
+import { courseSchema } from "@/lib/validations";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { X } from "lucide-react";
+import { useState } from "react";
 
-interface CourseBasicInfoProps {
-  form: UseFormReturn<Course>
-}
+export default function CourseBasicInfo() {
+  const course = useCourseStore((state) => state.course);
+  const setCourseTitle = useCourseStore((state) => state.setCourseTitle);
+  const setCourseDescription = useCourseStore((state) => state.setCourseDescription);
+  const setCourseTags = useCourseStore((state) => state.setCourseTags);
 
-export function CourseBasicInfo({ form }: CourseBasicInfoProps) {
-  const {
-    register,
-    formState: { errors },
-    watch,
-    setValue
-  } = form
+  const form = useForm<z.infer<typeof courseSchema>>({
+    resolver: zodResolver(courseSchema),
+    defaultValues: {
+      title: course.title,
+      description: course.description,
+      tags: course.tags || [],
+    },
+  });
 
-  const watchedFields = watch()
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCourseTitle(e.target.value);
+    form.setValue("title", e.target.value);
+  };
+
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCourseDescription(e.target.value);
+    form.setValue("description", e.target.value);
+  };
+
+  const [tagInput, setTagInput] = useState("");
+
+  const addTag = () => {
+    if (!tagInput.trim()) return;
+
+    const currentTags = course.tags || [];
+    if (currentTags.includes(tagInput.trim())) {
+      setTagInput("");
+      return;
+    }
+
+    if (currentTags.length >= 20) return;
+
+    const newTags = [...currentTags, tagInput.trim()];
+    setCourseTags(newTags);
+    form.setValue("tags", newTags);
+    setTagInput("");
+  };
+
+  const removeTag = (tag: string) => {
+    const currentTags = course.tags || [];
+    const newTags = currentTags.filter((t) => t !== tag);
+    setCourseTags(newTags);
+    form.setValue("tags", newTags);
+  };
 
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Course Information</CardTitle>
-          <CardDescription>
-            Provide basic information about your course
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="title" className="text-sm font-medium">
-              Course Title *
-            </label>
-            <Input
-              id="title"
-              placeholder="Enter course title"
-              {...register('title')}
-              className={errors.title ? 'border-destructive' : ''}
-            />
-            {errors.title && (
-              <p className="text-sm text-destructive">{errors.title.message}</p>
-            )}
-          </div>
+    <Card className="w-full">
+      <CardHeader>
+        <CardTitle>Course Information</CardTitle>
+        <CardDescription>
+          Add basic details about your course to help students discover it.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <div className="space-y-2">
+          <Label htmlFor="title">Course Title</Label>
+          <Input
+            id="title"
+            placeholder="Enter course title"
+            value={course.title}
+            onChange={handleTitleChange}
+          />
+          {form.formState.errors.title && (
+            <p className="text-sm text-red-500">{form.formState.errors.title.message}</p>
+          )}
+        </div>
 
-          <div className="space-y-2">
-            <label htmlFor="description" className="text-sm font-medium">
-              Course Description *
-            </label>
-            <Textarea
-              id="description"
-              placeholder="Describe what students will learn in this course"
-              rows={4}
-              {...register('description')}
-              className={errors.description ? 'border-destructive' : ''}
-            />
-            {errors.description && (
-              <p className="text-sm text-destructive">{errors.description.message}</p>
-            )}
-          </div>
+        <div className="space-y-2">
+          <Label htmlFor="description">Course Description</Label>
+          <Textarea
+            id="description"
+            placeholder="Enter course description"
+            value={course.description || ""}
+            onChange={handleDescriptionChange}
+            rows={5}
+          />
+          {form.formState.errors.description && (
+            <p className="text-sm text-red-500">{form.formState.errors.description.message}</p>
+          )}
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <label htmlFor="category" className="text-sm font-medium">
-                Category *
-              </label>
-              <select
-                id="category"
-                {...register('category')}
-                className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                  errors.category ? 'border-destructive' : ''
-                }`}
-              >
-                <option value="">Select a category</option>
-                <option value="technology">Technology</option>
-                <option value="business">Business</option>
-                <option value="design">Design</option>
-                <option value="marketing">Marketing</option>
-                <option value="language">Language</option>
-                <option value="science">Science</option>
-                <option value="arts">Arts</option>
-                <option value="other">Other</option>
-              </select>
-              {errors.category && (
-                <p className="text-sm text-destructive">{errors.category.message}</p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="level" className="text-sm font-medium">
-                Course Level *
-              </label>
-              <select
-                id="level"
-                {...register('level')}
-                className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                  errors.level ? 'border-destructive' : ''
-                }`}
-              >
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
-              </select>
-              {errors.level && (
-                <p className="text-sm text-destructive">{errors.level.message}</p>
-              )}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <label htmlFor="duration" className="text-sm font-medium">
-                Duration (hours) *
-              </label>
-              <Input
-                id="duration"
-                type="number"
-                min="1"
-                max="1000"
-                placeholder="0"
-                {...register('duration', { valueAsNumber: true })}
-                className={errors.duration ? 'border-destructive' : ''}
-              />
-              {errors.duration && (
-                <p className="text-sm text-destructive">{errors.duration.message}</p>
-              )}
-            </div>
-
-            <div className="space-y-2">
-              <label htmlFor="price" className="text-sm font-medium">
-                Price ($)
-              </label>
-              <Input
-                id="price"
-                type="number"
-                min="0"
-                max="10000"
-                step="0.01"
-                placeholder="0.00"
-                {...register('price', { valueAsNumber: true })}
-                className={errors.price ? 'border-destructive' : ''}
-              />
-              {errors.price && (
-                <p className="text-sm text-destructive">{errors.price.message}</p>
-              )}
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="tags" className="text-sm font-medium">
-              Tags (comma-separated)
-            </label>
+        <div className="space-y-2">
+          <Label htmlFor="tags">Course Tags</Label>
+          <div className="flex gap-2">
             <Input
               id="tags"
-              placeholder="e.g., programming, web development, javascript"
-              onChange={(e) => {
-                const tags = e.target.value.split(',').map(tag => tag.trim()).filter(Boolean)
-                setValue('tags', tags)
+              placeholder="Enter tags"
+              value={tagInput}
+              onChange={(e) => setTagInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  addTag();
+                }
               }}
             />
-            <p className="text-sm text-muted-foreground">
-              Add relevant tags to help students find your course
+            <Button type="button" onClick={addTag}>
+              Add
+            </Button>
+          </div>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {(course.tags || []).map((tag) => (
+              <Badge key={tag} variant="secondary" className="flex items-center gap-1">
+                {tag}
+                <X
+                  className="h-3 w-3 cursor-pointer"
+                  onClick={() => removeTag(tag)}
+                />
+              </Badge>
+            ))}
+          </div>
+          {(course.tags || []).length === 0 && (
+            <p className="text-sm text-gray-500">
+              No tags added yet. Tags help students find your course.
             </p>
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="prerequisites" className="text-sm font-medium">
-              Prerequisites (comma-separated)
-            </label>
-            <Input
-              id="prerequisites"
-              placeholder="e.g., Basic programming knowledge, HTML/CSS"
-              onChange={(e) => {
-                const prerequisites = e.target.value.split(',').map(prereq => prereq.trim()).filter(Boolean)
-                setValue('prerequisites', prerequisites)
-              }}
-            />
-            <p className="text-sm text-muted-foreground">
-              List any skills or knowledge required before taking this course
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Course Options</CardTitle>
-          <CardDescription>
-            Configure additional course settings
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <input
-              id="isPaid"
-              type="checkbox"
-              {...register('isPaid')}
-              className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-            />
-            <label htmlFor="isPaid" className="text-sm font-medium">
-              This is a paid course
-            </label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <input
-              id="isPublished"
-              type="checkbox"
-              {...register('isPublished')}
-              className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-            />
-            <label htmlFor="isPublished" className="text-sm font-medium">
-              Publish course immediately
-            </label>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  )
+          )}
+          {form.formState.errors.tags && (
+            <p className="text-sm text-red-500">{form.formState.errors.tags.message}</p>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
 }

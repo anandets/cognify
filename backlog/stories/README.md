@@ -79,6 +79,94 @@ Each user story file contains:
 | [US-004-09](./US-004-09-Accounting-Integration.md) | Accounting Software Integration | 8 | Low | Not Started |
 | [US-004-10](./US-004-10-Tax-Management.md) | Tax Management | 5 | Medium | Not Started |
 
+### EP-005: Marketing & Sales Automation (75 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-005-01](./US-005-01-Email-Marketing-Automation.md) | Email Marketing Automation | 13 | High | Not Started |
+| [US-005-02](./US-005-02-SMS-WhatsApp-Campaigns.md) | SMS & WhatsApp Campaigns | 8 | High | Not Started |
+| [US-005-03](./US-005-03-Social-Media-Automation.md) | Social Media Automation | 13 | High | Not Started |
+| [US-005-04](./US-005-04-AI-Post-Generator.md) | AI Post Generator | 8 | Medium | Not Started |
+| [US-005-05](./US-005-05-Campaign-Builder-Funnels.md) | Campaign Builder & Funnels | 13 | High | Not Started |
+| [US-005-06](./US-005-06-Referral-Program-Management.md) | Referral Program Management | 8 | Medium | Not Started |
+| [US-005-07](./US-005-07-Affiliate-Management-System.md) | Affiliate Management System | 8 | Medium | Not Started |
+| [US-005-08](./US-005-08-Marketing-Analytics-Dashboard.md) | Marketing Analytics Dashboard | 5 | High | Not Started |
+
+### EP-006: Website & Branding Platform (68 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-006-01](./US-006-01-Drag-Drop-Website-Builder.md) | Drag Drop Website Builder | 13 | High | Not Started |
+| [US-006-02](./US-006-02-Template-Management-System.md) | Template Management System | 8 | High | Not Started |
+| [US-006-03](./US-006-03-Whitelabel-Configuration.md) | Whitelabel Configuration | 13 | Critical | Not Started |
+| [US-006-04](./US-006-04-Custom-Domain-Management.md) | Custom Domain Management | 8 | High | Not Started |
+| [US-006-05](./US-006-05-Brand-Asset-Management.md) | Brand Asset Management | 5 | Medium | Not Started |
+| [US-006-06](./US-006-06-Embedded-Widget-Generator.md) | Embedded Widget Generator | 13 | High | Not Started |
+| [US-006-07](./US-006-07-SEO-Optimization-Tools.md) | SEO Optimization Tools | 5 | Medium | Not Started |
+| [US-006-08](./US-006-08-Mobile-Responsive-Design.md) | Mobile Responsive Design | 3 | High | Not Started |
+
+### EP-007: Business Intelligence & Analytics (72 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-007-01](./US-007-01-Visual-Dashboard-Builder.md) | Visual Dashboard Builder | 13 | High | Not Started |
+| [US-007-02](./US-007-02-KPI-Tracking-System.md) | KPI Tracking System | 8 | High | Not Started |
+| [US-007-03](./US-007-03-Student-Engagement-Heatmaps.md) | Student Engagement Heatmaps | 13 | High | Not Started |
+| [US-007-04](./US-007-04-App-Usage-Analytics.md) | App Usage Analytics | 8 | Medium | Not Started |
+| [US-007-05](./US-007-05-Conversion-Funnel-Reports.md) | Conversion Funnel Reports | 8 | High | Not Started |
+| [US-007-06](./US-007-06-Revenue-Expense-Tracking.md) | Revenue & Expense Tracking | 13 | Critical | Not Started |
+| [US-007-07](./US-007-07-Predictive-Analytics-Engine.md) | Predictive Analytics Engine | 5 | Medium | Not Started |
+| [US-007-08](./US-007-08-Custom-Report-Builder.md) | Custom Report Builder | 5 | Medium | Not Started |
+
+### EP-008: AI Automations & Intelligent Workflows (85 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-008-01](./US-008-01-Autopilot-Mode-System.md) | Autopilot Mode System | 13 | High | Not Started |
+| [US-008-02](./US-008-02-AI-Task-Recommendations.md) | AI Task Recommendations | 8 | High | Not Started |
+| [US-008-03](./US-008-03-Smart-Chatbot-Engine.md) | Smart Chatbot Engine | 13 | High | Not Started |
+| [US-008-04](./US-008-04-Lead-Generation-Chatbot.md) | Lead Generation Chatbot | 8 | High | Not Started |
+| [US-008-05](./US-008-05-Student-Support-Chatbot.md) | Student Support Chatbot | 8 | High | Not Started |
+| [US-008-06](./US-008-06-Workflow-Automation-Builder.md) | Workflow Automation Builder | 13 | High | Not Started |
+| [US-008-07](./US-008-07-Intelligent-Routing-System.md) | Intelligent Routing System | 13 | High | Not Started |
+| [US-008-08](./US-008-08-AI-Learning-Optimization.md) | AI Learning & Optimization | 8 | Medium | Not Started |
+| [US-008-09](./US-008-09-Natural-Language-Processing.md) | Natural Language Processing | 5 | Medium | Not Started |
+
+### EP-009: Compliance, Security & Support (95 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-009-01](./US-009-01-Role-Based-Access-Control.md) | Role Based Access Control | 13 | Critical | Not Started |
+| [US-009-02](./US-009-02-Comprehensive-Audit-Trails.md) | Comprehensive Audit Trails | 13 | Critical | Not Started |
+| [US-009-03](./US-009-03-File-Tracking-Document-Vault.md) | File Tracking & Document Vault | 8 | High | Not Started |
+| [US-009-04](./US-009-04-Tally-Integration-System.md) | Tally Integration System | 8 | High | Not Started |
+| [US-009-05](./US-009-05-GST-E-invoice-Compliance.md) | GST & E-invoice Compliance | 13 | Critical | Not Started |
+| [US-009-06](./US-009-06-Student-Support-Ticketing.md) | Student Support Ticketing | 8 | High | Not Started |
+| [US-009-07](./US-009-07-Internal-Support-System.md) | Internal Support System | 8 | Medium | Not Started |
+| [US-009-08](./US-009-08-Compliance-Dashboard.md) | Compliance Dashboard | 13 | Critical | Not Started |
+| [US-009-09](./US-009-09-Data-Protection-Tools.md) | Data Protection Tools | 5 | Critical | Not Started |
+| [US-009-10](./US-009-10-Security-Monitoring-System.md) | Security Monitoring System | 8 | Critical | Not Started |
+
+### EP-010: SuperAdmin SaaS Management Portal (125 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-010-01](./US-010-01-Multi-Tenant-Dashboard.md) | Multi-Tenant Dashboard | 13 | Critical | Not Started |
+| [US-010-02](./US-010-02-Client-Lifecycle-Management.md) | Client Lifecycle Management | 13 | Critical | Not Started |
+| [US-010-03](./US-010-03-Subscription-Plan-Management.md) | Subscription Plan Management | 13 | Critical | Not Started |
+| [US-010-04](./US-010-04-Automated-Billing-System.md) | Automated Billing System | 8 | Critical | Not Started |
+| [US-010-05](./US-010-05-Revenue-Analytics-Dashboard.md) | Revenue Analytics Dashboard | 8 | High | Not Started |
+| [US-010-06](./US-010-06-Discount-Coupon-Engine.md) | Discount & Coupon Engine | 5 | Medium | Not Started |
+| [US-010-07](./US-010-07-SuperAdmin-Access-Control.md) | SuperAdmin Access Control | 8 | Critical | Not Started |
+| [US-010-08](./US-010-08-Team-Task-Assignment.md) | Team Task Assignment | 5 | Medium | Not Started |
+| [US-010-09](./US-010-09-Multi-Level-Support-Ticketing.md) | Multi-Level Support Ticketing | 13 | High | Not Started |
+| [US-010-10](./US-010-10-Client-Communication-Hub.md) | Client Communication Hub | 8 | High | Not Started |
+| [US-010-11](./US-010-11-Feature-Flag-Management.md) | Feature Flag Management | 8 | High | Not Started |
+| [US-010-12](./US-010-12-Tenant-Resource-Monitoring.md) | Tenant Resource Monitoring | 8 | High | Not Started |
+| [US-010-13](./US-010-13-Client-Health-Scoring.md) | Client Health Scoring | 5 | Medium | Not Started |
+| [US-010-14](./US-010-14-White-label-Configuration.md) | White-label Configuration | 8 | High | Not Started |
+| [US-010-15](./US-010-15-Migration-Integration-Tools.md) | Migration & Integration Tools | 13 | Medium | Not Started |
+
 ## Story Status Definitions
 
 - **Not Started**: Story is defined but development has not begun

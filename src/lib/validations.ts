@@ -1,55 +1,59 @@
 import { z } from "zod"
 
+const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB
+const ACCEPTED_VIDEO_TYPES = ['video/mp4', 'video/mov', 'video/avi', 'video/webm'];
+const ACCEPTED_AUDIO_TYPES = ['audio/mp3', 'audio/wav', 'audio/aac'];
+const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/svg+xml'];
+const ACCEPTED_DOCUMENT_TYPES = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
+
 export const courseSchema = z.object({
-  title: z.string().min(3, "Course title must be at least 3 characters").max(100, "Course title must be less than 100 characters"),
-  description: z.string().min(10, "Course description must be at least 10 characters").max(500, "Course description must be less than 500 characters"),
-  category: z.string().min(1, "Please select a category"),
-  level: z.enum(["beginner", "intermediate", "advanced"], {
-    required_error: "Please select a course level",
-  }),
-  duration: z.number().min(1, "Duration must be at least 1 hour").max(1000, "Duration must be less than 1000 hours"),
-  price: z.number().min(0, "Price must be 0 or greater").max(10000, "Price must be less than $10,000"),
-  isPaid: z.boolean().default(false),
-  isPublished: z.boolean().default(false),
-  prerequisites: z.array(z.string()).optional(),
-  tags: z.array(z.string()).optional(),
+  title: z.string().min(1, 'Title is required').max(100, 'Title cannot exceed 100 characters'),
+  description: z.string().max(2000, 'Description cannot exceed 2000 characters').optional(),
+  tags: z.array(z.string()).max(20, 'Cannot have more than 20 tags').optional(),
 })
 
 export const moduleSchema = z.object({
-  id: z.string(),
-  title: z.string().min(3, "Module title must be at least 3 characters").max(100, "Module title must be less than 100 characters"),
-  description: z.string().optional(),
-  order: z.number().min(0),
-  lessons: z.array(z.string()).default([]),
-  isPublished: z.boolean().default(false),
-  prerequisites: z.array(z.string()).optional(),
+  title: z.string().min(1, 'Title is required').max(100, 'Title cannot exceed 100 characters'),
+  description: z.string().max(1000, 'Description cannot exceed 1000 characters').optional(),
+  prerequisiteModuleIds: z.array(z.string()).optional(),
 })
 
 export const lessonSchema = z.object({
-  id: z.string(),
-  title: z.string().min(3, "Lesson title must be at least 3 characters").max(100, "Lesson title must be less than 100 characters"),
-  description: z.string().optional(),
+  title: z.string().min(1, 'Title is required').max(100, 'Title cannot exceed 100 characters'),
+  description: z.string().max(1000, 'Description cannot exceed 1000 characters').optional(),
+})
+
+export const contentSchema = z.object({
+  title: z.string().min(1, 'Title is required').max(100, 'Title cannot exceed 100 characters'),
+  type: z.enum(['text', 'video', 'audio', 'image', 'pdf', 'quiz']),
   content: z.string().optional(),
-  contentType: z.enum(["text", "video", "audio", "image", "pdf", "interactive"], {
-    required_error: "Please select a content type",
-  }),
-  order: z.number().min(0),
-  duration: z.number().min(1, "Duration must be at least 1 minute").max(600, "Duration must be less than 600 minutes"),
-  isPublished: z.boolean().default(false),
-  videoUrl: z.string().url().optional(),
-  audioUrl: z.string().url().optional(),
-  imageUrl: z.string().url().optional(),
-  pdfUrl: z.string().url().optional(),
-  interactiveContent: z.string().optional(),
+  description: z.string().max(1000, 'Description cannot exceed 1000 characters').optional(),
 })
 
-export const fileUploadSchema = z.object({
-  file: z.custom<File>((file) => file instanceof File, "Please select a file"),
-  type: z.enum(["video", "audio", "image", "document"]),
-  maxSize: z.number().default(500 * 1024 * 1024), // 500MB default
+export const fileSchema = z.object({
+  file: z.instanceof(File)
+    .refine((file) => file.size <= MAX_FILE_SIZE, `Max file size is 500MB.`)
+    .refine(
+      (file) => {
+        if (file.type.startsWith('video/')) {
+          return ACCEPTED_VIDEO_TYPES.includes(file.type);
+        }
+        if (file.type.startsWith('audio/')) {
+          return ACCEPTED_AUDIO_TYPES.includes(file.type);
+        }
+        if (file.type.startsWith('image/')) {
+          return ACCEPTED_IMAGE_TYPES.includes(file.type);
+        }
+        if (file.type.startsWith('application/')) {
+          return ACCEPTED_DOCUMENT_TYPES.includes(file.type);
+        }
+        return false;
+      },
+      'Unsupported file format.'
+    ),
 })
 
-export type Course = z.infer<typeof courseSchema>
-export type Module = z.infer<typeof moduleSchema>
-export type Lesson = z.infer<typeof lessonSchema>
-export type FileUpload = z.infer<typeof fileUploadSchema>
+export const courseSpaceSchema = z.object({
+  filesSize: z.number().max(10 * 1024 * 1024 * 1024, 'Course total size cannot exceed 10GB'),
+  lessonsCount: z.number().max(100, 'Course cannot have more than 100 lessons'),
+})
