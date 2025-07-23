@@ -30,13 +30,15 @@ This document tracks all critical projects and their progress for the Cognify Ed
 
 | Task | Sub-Task | Status |
 |------|----------|--------|
+ UI Spec for Authetication (EP-000) | All stories | ⏳ Not Started |
+  UI Spec for LMS (EP-001) | All stories | ✅ Completed |
+  UI Spec for SIS (EP-002) | All stories || ✅ Completed |
 | UI Spec for CRM (EP-003) | All stories | ✅ Completed |
 | UI Spec for Finance (EP-004) | All stories | ✅ Completed |
 | UI Spec for Marketing (EP-005) | US-005-02 to US-005-05 done, US-005-06 to US-005-08 pending | ⏳ In Progress |
 | UI Spec for Website Builder (EP-006) | US-006-01 done, US-006-02 to US-006-08 pending | ⏳ In Progress |
 | UI Spec for BI, AI, Compliance, SuperAdmin | All stories | ⏳ Not Started |
 
-| UI Spec for Authentication (EP-000) | US-000-01 to US-000-10 defined, UI screens pending | ⏳ In Progress |
 ---
 
 ## 3. Frontend Screen Development Project
