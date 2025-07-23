@@ -15,7 +15,7 @@ This document tracks all critical projects and their progress for the Cognify Ed
 
 | Task | Sub-Task | Status |
 |------|----------|--------|
-| Define Epics | All 10 epics created | ✅ Completed |
+| Define Epics | All 11 epics created | ✅ Completed |
 | Create User Stories | All stories for each epic written | ✅ Completed |
 | Acceptance Criteria | All stories have criteria | ✅ Completed |
 | Technical Review | Stories reviewed by dev team | ✅ Completed |
@@ -35,7 +35,7 @@ This document tracks all critical projects and their progress for the Cognify Ed
   UI Spec for SIS (EP-002) | All stories | ✅ Completed |
 | UI Spec for CRM (EP-003) | All stories | ✅ Completed |
 | UI Spec for Finance (EP-004) | All stories | ✅ Completed |
-| UI Spec for Marketing (EP-005) | US-005-02 to US-005-05 done, US-005-06 to US-005-08 pending | ⏳ In Progress |
+| UI Spec for Marketing (EP-005) | US-005-02 to US-005-06 done, US-005-07 to US-005-08 pending | ⏳ In Progress |
 | UI Spec for Website Builder (EP-006) | US-006-01 done, US-006-02 to US-006-08 pending | ⏳ In Progress |
 | UI Spec for BI, AI, Compliance, SuperAdmin | All stories | ⏳ Not Started |
 
