@@ -18,6 +18,34 @@ Each user story file contains:
 - **Success Metrics**: Measurable outcomes
 
 ## Stories by Epic
+### EP-000: Authentication System (55 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-000-01](./US-000-01-User-Registration-Onboarding.md) | User Registration & Onboarding | 8 | Critical | Not Started |
+| [US-000-02](./US-000-02-Secure-Login-Logout.md) | Secure Login & Logout | 5 | Critical | Not Started |
+| [US-000-03](./US-000-03-Password-Reset-Recovery.md) | Password Reset & Recovery | 5 | Critical | Not Started |
+| [US-000-04](./US-000-04-Multi-Factor-Authentication.md) | Multi-Factor Authentication | 8 | Critical | Not Started |
+| [US-000-05](./US-000-05-Role-Based-Access-Control.md) | Role-Based Access Control | 8 | Critical | Not Started |
+| [US-000-06](./US-000-06-SSO-Integration.md) | SSO Integration | 5 | High | Not Started |
+| [US-000-07](./US-000-07-Session-Management.md) | Session Management | 5 | High | Not Started |
+| [US-000-08](./US-000-08-Audit-Logging-Authentication.md) | Audit Logging for Authentication | 3 | High | Not Started |
+| [US-000-09](./US-000-09-Account-Lockout-Recovery.md) | Account Lockout & Recovery | 3 | High | Not Started |
+| [US-000-10](./US-000-10-SuperAdmin-Authentication-Flows.md) | SuperAdmin Authentication Flows | 5 | Critical | Not Started |
+### EP-000: Authentication System (55 points)
+
+| Story ID | Title | Points | Priority | Status |
+|----------|-------|--------|----------|---------|
+| [US-000-01](./US-000-01-User-Registration-Onboarding.md) | User Registration & Onboarding | 8 | Critical | Not Started |
+| [US-000-02](./US-000-02-Secure-Login-Logout.md) | Secure Login & Logout | 5 | Critical | Not Started |
+| [US-000-03](./US-000-03-Password-Reset-Recovery.md) | Password Reset & Recovery | 5 | Critical | Not Started |
+| [US-000-04](./US-000-04-Multi-Factor-Authentication.md) | Multi-Factor Authentication | 8 | Critical | Not Started |
+| [US-000-05](./US-000-05-Role-Based-Access-Control.md) | Role-Based Access Control | 8 | Critical | Not Started |
+| [US-000-06](./US-000-06-SSO-Integration.md) | SSO Integration | 5 | High | Not Started |
+| [US-000-07](./US-000-07-Session-Management.md) | Session Management | 5 | High | Not Started |
+| [US-000-08](./US-000-08-Audit-Logging-Authentication.md) | Audit Logging for Authentication | 3 | High | Not Started |
+| [US-000-09](./US-000-09-Account-Lockout-Recovery.md) | Account Lockout & Recovery | 3 | High | Not Started |
+| [US-000-10](./US-000-10-SuperAdmin-Authentication-Flows.md) | SuperAdmin Authentication Flows | 5 | Critical | Not Started |
 
 ### EP-001: Learning Management System (89 points)
 

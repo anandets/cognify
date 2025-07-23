@@ -36,6 +36,7 @@ This document tracks all critical projects and their progress for the Cognify Ed
 | UI Spec for Website Builder (EP-006) | US-006-01 done, US-006-02 to US-006-08 pending | ⏳ In Progress |
 | UI Spec for BI, AI, Compliance, SuperAdmin | All stories | ⏳ Not Started |
 
+| UI Spec for Authentication (EP-000) | US-000-01 to US-000-10 defined, UI screens pending | ⏳ In Progress |
 ---
 
 ## 3. Frontend Screen Development Project
@@ -60,6 +61,9 @@ This document tracks all critical projects and their progress for the Cognify Ed
 | Task | Sub-Task | Status |
 |------|----------|--------|
 | Setup Backend Repo | Node.js/Express, DB schema | ⏳ Not Started |
+| Implement Authentication Screens | US-000-01 to US-000-10 | ⏳ Not Started |
+| Implement LMS Screens | US-001-01 to US-001-10 | ⏳ Not Started |
+| Implement SIS Screens | US-002-01 to US-002-11 | ⏳ Not Started |
 | Implement CRM APIs | US-003-01 to US-003-09 | ⏳ Not Started |
 | Implement Finance APIs | US-004-01 to US-004-10 | ⏳ Not Started |
 | Implement Marketing APIs | US-005-01 to US-005-08 | ⏳ Not Started |
@@ -74,11 +78,14 @@ This document tracks all critical projects and their progress for the Cognify Ed
 
 | Task | Sub-Task | Status |
 |------|----------|--------|
+| Implement LMS APIs | US-001-01 to US-001-10 | ⏳ Not Started |
+| Implement SIS APIs | US-002-01 to US-002-11 | ⏳ Not Started |
+| Automation Workflows | Triggers, notifications | ⏳ Not Started |
+| Implement Authentication APIs | US-000-01 to US-000-10 | ⏳ Not Started |
 | CRM Integration | Lead, contact sync | ⏳ Not Started |
 | Payment Integration | Stripe, PayPal, etc. | ⏳ Not Started |
 | Analytics Integration | Google Analytics, BI tools | ⏳ Not Started |
 | AI Integration | Chatbot, recommendations | ⏳ Not Started |
-| Automation Workflows | Triggers, notifications | ⏳ Not Started |
 
 ---
 
@@ -92,6 +99,9 @@ This document tracks all critical projects and their progress for the Cognify Ed
 | Integration Tests | API and UI flows | ⏳ Not Started |
 | E2E Tests | User journeys | ⏳ Not Started |
 | Accessibility Testing | WCAG 2.1 AA | ⏳ Not Started |
+| LMS Integration | Course, assessment, progress sync | ⏳ Not Started |
+| SIS Integration | Student, parent, alumni sync | ⏳ Not Started |
+| Authentication Integration | SSO, MFA, RBAC, audit logging | ⏳ Not Started |
 | Performance Testing | Core Web Vitals | ⏳ Not Started |
 
 ---
