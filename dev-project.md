@@ -48,6 +48,9 @@ This document tracks all critical projects and their progress for the Cognify Ed
 | Task | Sub-Task | Status |
 |------|----------|--------|
 | Setup Frontend Repo | Next.js, Tailwind, etc. | ✅ Completed |
+| Implement Authentication Screens | US-000-01 to US-000-10 | ⏳ Not Started |
+| Implement LMS Screens | US-001-01 to US-001-10 | ⏳ Not Started |
+| Implement SIS Screens | US-002-01 to US-002-11 | ⏳ Not Started |
 | Implement CRM Screens | US-003-01 to US-003-09 | ⏳ Not Started |
 | Implement Finance Screens | US-004-01 to US-004-10 | ⏳ Not Started |
 | Implement Marketing Screens | US-005-01 to US-005-08 | ⏳ Not Started |
@@ -80,10 +83,10 @@ This document tracks all critical projects and their progress for the Cognify Ed
 
 | Task | Sub-Task | Status |
 |------|----------|--------|
+| Implement Authentication APIs | US-000-01 to US-000-10 | ⏳ Not Started |
 | Implement LMS APIs | US-001-01 to US-001-10 | ⏳ Not Started |
 | Implement SIS APIs | US-002-01 to US-002-11 | ⏳ Not Started |
 | Automation Workflows | Triggers, notifications | ⏳ Not Started |
-| Implement Authentication APIs | US-000-01 to US-000-10 | ⏳ Not Started |
 | CRM Integration | Lead, contact sync | ⏳ Not Started |
 | Payment Integration | Stripe, PayPal, etc. | ⏳ Not Started |
 | Analytics Integration | Google Analytics, BI tools | ⏳ Not Started |
